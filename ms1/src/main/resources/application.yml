@@ -1,0 +1,7 @@
+server:
+  port: 8089
+
+logging:
+  pattern.console: '%date{ISO8601} %-5p [%logger] - %msg%n'
+  level:
+    root: INFO

@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = "2.1.4.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.palantir.gradle.gitversion:gradle-git-version:0.12.0-rc2"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+plugins {
+    id 'io.spring.dependency-management' version "1.0.7.RELEASE"
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'org.springframework.boot' version "2.1.4.RELEASE"
+}
+
+group = 'com.rcb.poc'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    axonVersion = "4.1"
+    springVersion = "5.1.6.RELEASE"
+}
+
+dependencies {
+    compile project(':commons')
+    compile "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    compile "org.axonframework:axon-spring-boot-starter:${axonVersion}"
+    compile "org.springframework:spring-web:${springVersion}"
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
