@@ -2,15 +2,15 @@ package com.rcb.poc.saga.command;
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-public class UpdatePolicyCommand {
+public class PaymentCommand {
 
     @TargetAggregateIdentifier //generate routing key
-    public String updateId;
+    public String paymentId;
 
     public int quantity;
 
-    public UpdatePolicyCommand(String updateId, int quantity) {
-        this.updateId = updateId;
+    public PaymentCommand(String paymentId, int quantity) {
+        this.paymentId = paymentId;
         this.quantity = quantity;
     }
 }

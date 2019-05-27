@@ -1,6 +1,6 @@
-package com.rcb.poc.saga.ms1.web;
+package com.rcb.poc.saga.payment.web;
 
-import com.rcb.poc.saga.command.UpdatePolicyCommand;
+import com.rcb.poc.saga.command.PaymentCommand;
 import org.axonframework.commandhandling.callbacks.LoggingCallback;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class SagaPocController {
     @PostMapping("/saga")
     public ResponseEntity launchSaga() {
 
-        commandGateway.send(new UpdatePolicyCommand(UUID.randomUUID().toString(), 1000), LoggingCallback.INSTANCE);
+        commandGateway.send(new PaymentCommand(UUID.randomUUID().toString(), 1000), LoggingCallback.INSTANCE);
 
         return ResponseEntity.ok(null);
     }
